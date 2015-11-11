@@ -15,6 +15,9 @@ public class NumberPblm {
 	}
 	
 	public static void main(String[] args) {
-		
+		System.out.println(45/10);
+		System.out.println(45%10);
+		System.out.println(451/10);
+		System.out.println(451%10);
 	}
 }

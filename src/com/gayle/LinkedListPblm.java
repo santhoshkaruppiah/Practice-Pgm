@@ -14,17 +14,17 @@ public class LinkedListPblm {
 //		printNode(addList(consList1(), consList2(), 0));
 //		printNode(consLoopList());
 		//printNode(findMulitRefNode(consLoopList()));
-		Node result=findMulitRefNode(consLoopList());
+		com.test.Node result=findMulitRefNode(consLoopList());
 		while(result!=null){
 			System.out.print(result.data+" ");
 			result=result.next;
 		}
-		System.out.println("dsoufn");
+		
 	}
 	
-	public static Node findMulitRefNode(Node toFind){
-		Node fastPointer=toFind;
-		Node slowPointer=toFind;
+	public static com.test.Node findMulitRefNode(com.test.Node toFind){
+		com.test.Node fastPointer=toFind;
+		com.test.Node slowPointer=toFind;
 		while(fastPointer.next!=null){
 			slowPointer=slowPointer.next;
 			fastPointer=fastPointer.next.next;
@@ -52,9 +52,9 @@ public class LinkedListPblm {
 		ListIterator itr=toDeleteList.listIterator(0);
 		while(itr.hasNext()){
 			Node curr=(Node)itr.next();
-			System.out.println("Curr Node Value="+curr.getData());
-			if (!hMap.containsKey(curr.getData())){
-				hMap.put(curr.getData(), true);
+			System.out.println("Curr Node Value="+curr.getSData());
+			if (!hMap.containsKey(curr.getSData())){
+				hMap.put(curr.getSData(), true);
 			}else{
 				itr.remove();
 			}
@@ -63,16 +63,16 @@ public class LinkedListPblm {
 		
 	}
 	
-	public static void deleteDup_Sol2(Node toDeleteList){//remove duplicate from unsorted linked list
+	public static void deleteDup_Sol2(com.test.Node toDeleteList){//remove duplicate from unsorted linked list
 																  //sol-- with no buffer
 		if (toDeleteList==null) return;														
-		Node head = toDeleteList;
-		Node curr = head.next;
+		com.test.Node head = toDeleteList;
+		com.test.Node curr = head.next;
 		while(curr!=null){
-			Node runner = toDeleteList;
+			com.test.Node runner = toDeleteList;
 			while(curr!=runner){
 				if (curr.data==runner.data){
-					Node temp=curr.next;
+					com.test.Node temp=curr.next;
 					head.next=temp;
 					curr=temp;
 					break;
@@ -97,7 +97,7 @@ public class LinkedListPblm {
 		int i=0;
 		for (Object object : toPrint) {
 			Node ref=(Node)object;
-			System.out.println("Node "+i+",data="+ref.getData());
+			System.out.println("Node "+i+",data="+ref.getSData());
 			i++;
 		}
 	}
@@ -114,55 +114,55 @@ public class LinkedListPblm {
 		return toReturnlList;
 	}
 	
-	public static Node addList(Node<Integer> node1,Node<Integer> node2,int carry){
+	public static com.test.Node addList(com.test.Node<Integer> node1,com.test.Node<Integer> node2,int carry){
 		if (node1==null && node2==null) { return null;}
 		int nodeData=(node1.data+node2.data+carry)%10;
-		Node root=new Node(nodeData);
-		Node<Integer> chldNode=addList(node1.next,node2.next,node1.data+node2.data>=10?1:0);
+		com.test.Node root=new com.test.Node(nodeData);
+		com.test.Node<Integer> chldNode=addList(node1.next,node2.next,node1.data+node2.data>=10?1:0);
 		root.next=chldNode;
 		return root;
 	}
 	
-	public static void printNode(Node toPrint){
-		Node temp=toPrint;
+	public static void printNode(com.test.Node toPrint){
+		com.test.Node temp=toPrint;
 		while(temp!=null){
 			System.out.print(temp.data+" ");
 			temp = temp.next;
 		}
 	}
 
-	public static Node consCustomNode(){
-		Node<Integer> root = new Node<Integer>(1);
-		root.next=new Node<Integer>(2);
-		root.next.next=new Node<Integer>(3);
-		root.next.next.next=new Node<Integer>(2);
-		root.next.next.next.next=new Node<Integer>(1);
+	public static com.test.Node consCustomNode(){
+		com.test.Node<Integer> root = new com.test.Node<Integer>(1);
+		root.next=new com.test.Node<Integer>(2);
+		root.next.next=new com.test.Node<Integer>(3);
+		root.next.next.next=new com.test.Node<Integer>(2);
+		root.next.next.next.next=new com.test.Node<Integer>(1);
 		return root;
 	}
 	
-	public static Node consList1(){
-		Node<Integer> root = new Node<Integer>(3);
-		root.next=new Node<Integer>(1);
-		root.next.next=new Node<Integer>(5);
+	public static com.test.Node consList1(){
+		com.test.Node<Integer> root = new com.test.Node<Integer>(3);
+		root.next=new com.test.Node<Integer>(1);
+		root.next.next=new com.test.Node<Integer>(5);
 		return root;
 	}
 	
-	public static Node consList2(){
-		Node<Integer> root = new Node<Integer>(5);
-		root.next=new Node<Integer>(9);
-		root.next.next=new Node<Integer>(3);
+	public static com.test.Node consList2(){
+		com.test.Node<Integer> root = new com.test.Node<Integer>(5);
+		root.next=new com.test.Node<Integer>(9);
+		root.next.next=new com.test.Node<Integer>(3);
 		return root;
 	}
 	
-	public static Node consLoopList(){
-		Node<Integer> root = new Node<Integer>(1);
-		Node<Integer> ch1 = new Node<Integer>(2);
-		Node<Integer> ch2 = new Node<Integer>(3);
-		Node<Integer> ch3 = new Node<Integer>(4);
-		Node<Integer> ch4 = new Node<Integer>(5);
-		Node<Integer> ch5 = new Node<Integer>(6);
-		Node<Integer> ch6 = new Node<Integer>(7);
-		Node<Integer> ch7 = new Node<Integer>(8);
+	public static com.test.Node consLoopList(){
+		com.test.Node<Integer> root = new com.test.Node<Integer>(1);
+		com.test.Node<Integer> ch1 = new com.test.Node<Integer>(2);
+		com.test.Node<Integer> ch2 = new com.test.Node<Integer>(3);
+		com.test.Node<Integer> ch3 = new com.test.Node<Integer>(4);
+		com.test.Node<Integer> ch4 = new com.test.Node<Integer>(5);
+		com.test.Node<Integer> ch5 = new com.test.Node<Integer>(6);
+		com.test.Node<Integer> ch6 = new com.test.Node<Integer>(7);
+		com.test.Node<Integer> ch7 = new com.test.Node<Integer>(8);
 		root.next=ch1;
 		ch1.next=ch2;
 		ch2.next=ch3;
@@ -175,16 +175,14 @@ public class LinkedListPblm {
 	}
 }
 
-class Node<T>{
+class Node{
+	private String sData;
 	
-    public T data; //the data stored in this node
-    public Node<T> next; //store a reference to the next node in this singlylinkedlist
-    
-    public Node(T data){
-        this.data = data;
-    }
-
-	public T getData() {
-		return data;
+	Node(String sData){
+		this.sData = sData;
+	}
+	
+	public String getSData(){
+		return sData;
 	}
 }
