@@ -26,7 +26,7 @@ public class SelectionSort {
 	}
 	
 	//My implementation
-	public static void selectionSort_myImpl1(){
+	public static void selectionSort_myImpl1(int[] intArray){
 		int k= 0;
 		for (int i = 0; i < intArray.length; i++) {
 			int val=intArray[i] ;
@@ -38,7 +38,7 @@ public class SelectionSort {
 					swapIndex = index;
 					val= intArray[swapIndex];
 				}
-				System.out.println("i="+i+",index="+index+",swap index="+swapIndex);
+//				System.out.println("i="+i+",index="+index+",swap index="+swapIndex);
 				index ++; 
 			}
 			
@@ -50,7 +50,7 @@ public class SelectionSort {
 		System.out.println("Swap hit count="+k);
 	}
 	
-	public static void selectionSort_bookImp(){ 
+	public static void selectionSort_bookImp(int[] intArray){ 
 		int out, in, min;
 		for(out=0; out<intArray.length-1; out++) {
 			min = out; 
@@ -69,9 +69,10 @@ public class SelectionSort {
 	
 	public static void main(String[] args) {
 		printArray();
-		selectionSort_myImpl1();
+		selectionSort_myImpl1(intArray);
 		printArray();
-		selectionSort_bookImp();
+		intArray = new int[]{77,99,44,55,22,88,11,0,66,33};//un-sorted array
+		selectionSort_bookImp(intArray);
 		printArray();
 	}
 }

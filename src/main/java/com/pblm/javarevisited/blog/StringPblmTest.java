@@ -7,6 +7,7 @@ import static com.pblm.javarevisited.blog.StringPblm.stringPermutationIterSol1;
 import static com.pblm.javarevisited.blog.StringPblm.stringPermutationRecSol1;
 import static com.pblm.javarevisited.blog.StringPblm.reverseStringRecursion;
 import static com.pblm.javarevisited.blog.StringPblm.isUniqueCharInString;
+import static com.pblm.javarevisited.blog.StringPblm.isUniqueCharInString_Sol2;
 import static com.pblm.javarevisited.blog.StringPblm.reverseStringArray;
 import static com.pblm.javarevisited.blog.StringPblm.reverseString2;
 import static com.pblm.javarevisited.blog.StringPblm.reverseString;
@@ -118,6 +119,20 @@ public class StringPblmTest {
 		String ip = "abcd";
 		System.out.println(isUniqueCharInString(ip));
 		assertTrue(isUniqueCharInString(ip));
+	}
+	
+	@Test
+	public void testisUniqueCharSol2String1() {
+		String ip = "saanthosh";
+		System.out.println(isUniqueCharInString(ip));
+		assertFalse(isUniqueCharInString_Sol2(ip));
+	}
+
+	@Test
+	public void testisUniqueCharSol2String2() {
+		String ip = "abcd";
+		System.out.println(isUniqueCharInString(ip));
+		assertTrue(isUniqueCharInString_Sol2(ip));
 	}
 
 	@Test

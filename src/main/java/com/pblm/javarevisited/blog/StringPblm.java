@@ -1,5 +1,6 @@
 package com.pblm.javarevisited.blog;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -82,6 +83,15 @@ public class StringPblm {
 			if (!set.add(String.valueOf(inString.charAt(i)))){
 				return false;
 			}
+		}
+		return true;
+	}
+	
+	public static final boolean isUniqueCharInString_Sol2(String inString){
+		char[] charArr = inString.toCharArray();
+		Arrays.sort(charArr);
+		for (int i=0;i<charArr.length-1;i++) {
+			if (charArr[i]==charArr[i+1]) return false;
 		}
 		return true;
 	}
