@@ -1,8 +1,10 @@
 package com.gayle;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class StringPblm {
@@ -21,7 +23,8 @@ public class StringPblm {
 //		System.out.println("end string with x sol="+endX_Sol2("xxssdxxgx"));
 //		char[] k= new char[]{'s','a','n','t','h','o','s','h'};
 //		removeDuplicates(k);
-		System.out.println(removeDuplicates("santhosh"));
+//		System.out.println(removeDuplicates("santhosh"));
+		System.out.println(permutate("Santhosh"));
 	}
 	
 	
@@ -170,5 +173,31 @@ public class StringPblm {
 		char c = toCompute.charAt(0);
 		String rest = endX_Sol2(toCompute.substring(1));
 		return c == 'x' ? rest + c : c + rest;
+	}
+	
+	public static List<String> permutate(String s) {
+		
+		List<String> permutations = new ArrayList<String>();
+		if (s==null) return null;
+		if(s.length()==0) {
+			permutations.add("");
+			return permutations;
+		}
+		char toAdd = s.charAt(0);
+		String remainder = s.substring(1);
+		List<String> words = permutate(remainder);
+		for (String word : words) {
+			for (int i = 0; i <= word.length(); i++) {
+				permutations.add(insertWord(word,toAdd,i));
+			}
+		}
+		return (permutations);
+	}
+
+
+	private static String insertWord(String word, char toAdd, int i) {
+		String start = word.substring(0,i);
+		String end = word.substring(i);
+		return (start+toAdd+end);
 	}
 }
