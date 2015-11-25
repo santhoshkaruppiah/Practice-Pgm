@@ -12,8 +12,8 @@ public class NIOFileChannelCopy extends BaseFileCopier {
 	@Override
 	protected boolean _copyFile(File source, File destination) throws IOException {
 		boolean status=false;
-		try(FileChannel fromChannel = getChannel(source,"r");
-			FileChannel toChannel = getChannel(destination,"rw");){
+		try(FileChannel fromChannel = IFileCopy.getChannel(IFileCopy.getRandomAccessFile(source,"r"));
+			FileChannel toChannel = IFileCopy.getChannel(IFileCopy.getRandomAccessFile(destination,"rw"));){
 			ByteBuffer buff = ByteBuffer.allocateDirect(DefaultBufferSize);
 			while (fromChannel.read(buff) > 0) {
 			      buff.flip();
@@ -22,6 +22,7 @@ public class NIOFileChannelCopy extends BaseFileCopier {
 			}
 			status=true;
 		}catch (Exception e) {
+			status=false;
 			e.printStackTrace();
 		}
 				
@@ -34,9 +35,4 @@ public class NIOFileChannelCopy extends BaseFileCopier {
 		fromChannel.transferTo(position, count, toChannel);
 	}
 
-	private FileChannel getChannel(File source,String mode) throws FileNotFoundException {
-		//return (new RandomAccessFile(source, mode).getChannel());
-		FileChannel FileChannel=(new RandomAccessFile(source, mode).getChannel());
-		return (FileChannel);
-	}
 }

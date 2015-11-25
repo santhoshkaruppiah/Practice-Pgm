@@ -21,8 +21,9 @@ public class FileCopy {
 
 	public static void invoke(String[] args) {
 //		BaseFileCopier fileCpy = new MultiThreadedFileCopy();
-		BaseFileCopier fileCpy = new BaseFileCopier();
+//		BaseFileCopier fileCpy = new BaseFileCopier();
 //		BaseFileCopier fileCpy = new NIOFileChannelCopy();
+		BaseFileCopier fileCpy = new MappedByteBufferCopy();
 		try {
 			long startTime = System.currentTimeMillis();
 			System.out.println("File Copied?"+fileCpy.copy(args[0],args[1]));

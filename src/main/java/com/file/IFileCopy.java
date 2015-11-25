@@ -1,7 +1,10 @@
 package com.file;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -66,4 +69,14 @@ public interface IFileCopy {
 	         throw new RuntimeException("Timeout waiting for value", e);
 	     }
 	 }
+	
+	static FileChannel getChannel(RandomAccessFile randomFile) throws FileNotFoundException {
+		//return (new RandomAccessFile(source, mode).getChannel());
+		FileChannel FileChannel=(randomFile.getChannel());
+		return (FileChannel);
+	}
+
+	static RandomAccessFile getRandomAccessFile(File source,String mode) throws FileNotFoundException {
+		return (new RandomAccessFile(source, mode));
+	}
 }
